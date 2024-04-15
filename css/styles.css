@@ -11,6 +11,7 @@
   font-size: 0.75rem;
   background-color: rgb(152, 3, 179);
   color: rgb(255, 255, 255);
+  cursor: pointer;
 }
 
 .box-notes {
@@ -25,4 +26,9 @@
   padding-left: 0.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.image-submit {
+  background-color: rgb(204, 203, 204);
+  padding: 7rem;
 }
