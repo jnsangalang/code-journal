@@ -17,48 +17,38 @@
   </head>
   <body>
     <header>
-      <div class="container column-full"></div>
+      <div class="container column-full">
+        <h1 class="header-journal">Code Journal</h1>
+        <h2 class="header-entry">New Entry</h2>
+      </div>
     </header>
-    <main class="container column-full">
-      <div data-view="entry-form" class="row">
-        <form class="form-box .column-third">
-          <h1 class="header-journal">Code Journal</h1>
-          <h2>New Entry</h2>
-          <input type="image" class="image-submit" alt="Submit" />
-          <p>Title</p>
-          <input type="text" required />
-          <p>Photo URL</p>
-          <input type="text" required />
-          <p>Notes</p>
-          <input type="text" class="box-notes" required />
-          <br />
-          <button class="button-save" type="submit">SAVE</button>
-        </form>
-        <form class="form-box .column-third">
-          <h1 class="header-journal">Code Journal</h1>
-          <h2>New Entry</h2>
-          <input type="image" class="image-submit" alt="Submit" />
-          <p>Title</p>
-          <input type="text" required />
-          <p>Photo URL</p>
-          <input type="text" required />
-          <p>Notes</p>
-          <input type="text" class="box-notes" required />
-          <br />
-          <button class="button-save" type="submit">SAVE</button>
-        </form>
-        <form class="form-box .column-third">
-          <h1 class="header-journal">Code Journal</h1>
-          <h2>New Entry</h2>
-          <input type="image" class="image-submit" alt="Submit" />
-          <p>Title</p>
-          <input type="text" required />
-          <p>Photo URL</p>
-          <input type="text" required />
-          <p>Notes</p>
-          <input type="text" class="box-notes" required />
-          <br />
-          <button class="button-save" type="submit">SAVE</button>
+    <main>
+      <div data-view="entry-form" class="container">
+        <form class="form-box">
+          <div class="row">
+            <div class="column-half image-align">
+              <img src="preview" class="image-submit" alt="image" />
+            </div>
+            <div class="column-half input-align">
+              <p class="input-label">Title</p>
+              <input class="input-box" type="text" required />
+              <p class="input-label">Photo URL</p>
+              <input class="photo-input input-box" type="text" required />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full notes-align">
+              <p>Notes</p>
+              <textarea
+                class="box-notes"
+                rows="5"
+                cols="50"
+                required></textarea>
+            </div>
+          </div>
+          <div>
+            <button class="button-save" type="submit">SAVE</button>
+          </div>
         </form>
       </div>
       <div data-view="entries" class="hidden"></div>
