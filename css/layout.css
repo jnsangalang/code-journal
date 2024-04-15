@@ -11,11 +11,16 @@
 .row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .column-full,
 .column-half {
   width: 100%;
+}
+
+.column-third {
+  width: calc(100% / 3);
 }
 
 @media screen and (min-width: 768px) {

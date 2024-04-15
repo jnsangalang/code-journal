@@ -18,18 +18,47 @@
   <body>
     <header>
       <div class="container column-full"></div>
-      <h1>New Entry</h1>
     </header>
-    <main class="container column-half row">
-      <div data-view="entry-form">
-        <form class="form-box">
+    <main class="container column-full">
+      <div data-view="entry-form" class="row">
+        <form class="form-box .column-third">
+          <h1 class="header-journal">Code Journal</h1>
+          <h2>New Entry</h2>
           <input type="image" class="image-submit" alt="Submit" />
           <p>Title</p>
           <input type="text" />
           <p>Photo URL</p>
           <input type="text" />
           <p>Notes</p>
+          <input type="text" class="box-notes" />
+          <br />
+          <button class="button-save" type="submit">SAVE</button>
+        </form>
+        <form class="form-box .column-third">
+          <h1 class="header-journal">Code Journal</h1>
+          <h2>New Entry</h2>
+          <input type="image" class="image-submit" alt="Submit" />
+          <p>Title</p>
           <input type="text" />
+          <p>Photo URL</p>
+          <input type="text" />
+          <p>Notes</p>
+          <input type="text" class="box-notes" />
+          <br />
+          <button class="button-save" type="submit">SAVE</button>
+        </form>
+        <form class="form-box .column-third">
+          <h1 class="header-journal">Code Journal</h1>
+          <h2>New Entry</h2>
+          <input type="image" class="image-submit" alt="Submit" />
+          <p>Title</p>
+          <input type="text" />
+          <p>Photo URL</p>
+          <input type="text" />
+          <p>Notes</p>
+          <input type="text" class="box-notes" />
+          <br />
+          <button class="button-save" type="submit">SAVE</button>
         </form>
       </div>
       <div data-view="entries" class="hidden"></div>

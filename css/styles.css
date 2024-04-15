@@ -1,3 +1,28 @@
 .form-box {
   text-align: left;
 }
+
+.button-save {
+  float: right;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.75rem;
+  border-radius: 0.2rem;
+  font-size: 0.75rem;
+  background-color: rgb(152, 3, 179);
+  color: rgb(255, 255, 255);
+}
+
+.box-notes {
+  padding-bottom: 5rem;
+}
+
+.header-journal {
+  font-size: 1rem;
+  background-color: rgb(152, 3, 179);
+  color: rgb(255, 255, 255);
+  font-weight: 100;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
