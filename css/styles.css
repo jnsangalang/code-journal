@@ -46,4 +46,5 @@
 .image-submit {
   background-color: rgb(204, 203, 204);
   padding: 30% 45%;
+  object-fit: contain;
 }
