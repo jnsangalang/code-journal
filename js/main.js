@@ -5,7 +5,6 @@ const $photoInput = document.querySelector('.photo-input');
 if (!$imageSubmit) throw new Error('The $imageSubmit query failed');
 if (!$photoInput) throw new Error('The $photoInput query failed');
 $photoInput.addEventListener('input', () => {
-  // $photoUrl.textContent = $photoInput.textContent;
   if (!$imageSubmit) throw new Error('The $imageSubmit query failed');
   const eventTarget = $photoInput.value;
   $imageSubmit.setAttribute('src', eventTarget);
@@ -32,8 +31,5 @@ $formInputs.addEventListener('submit', (event) => {
   data.nextEntryId++;
   data.entries.unshift(obj);
   $imageSubmit.setAttribute('src', '/images/placeholder-image-square.jpg');
-  const resetForm = document.getElementById('form-inputs');
-  if (resetForm) {
-    resetForm.reset();
-  }
+  $formInputs.reset();
 });

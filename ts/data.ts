@@ -1,7 +1,7 @@
 /* exported data */
 interface Data {
   view: string;
-  entries: object[];
+  entries: Entry[];
   editing: null;
   nextEntryId: number;
 }
