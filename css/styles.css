@@ -47,3 +47,7 @@ label {
   font-weight: 700;
   line-height: 4rem;
 }
+
+.no-entries {
+  text-align: center;
+}

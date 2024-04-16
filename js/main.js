@@ -52,14 +52,38 @@
 //     $objListItem.append($columnHalfImage);
 //     const $imgUrl = document.createElement("img");
 //     $imgUrl.src = entry.photo;
+//     $imgUrl.classList.add("image-submit");
 //     $columnHalfImage.append($imgUrl);
 //   const $columnHalfText = document.createElement("div");
 //     $columnHalfText.classList.add("column-half");
+//     $objListItem.append($columnHalfText);
 //     const $title = document.createElement("h2");
 //     $title.textContent = entry.title;
+//     $title.classList.add("input-box");
 //     $columnHalfText.append($title);
 //     const $note = document.createElement("p");
 //     $note.textContent = entry.note;
+//     $note.classList.add("box-notes");
 //     $columnHalfText.append($note);
+//     console.log('list item:', $objListItem);
 //     return $objListItem;
+// }
+// const $ul = document.querySelector("ul");
+// if (!$ul) throw new Error('The $ul query failed');
+// document.addEventListener("DOMContentLoaded" , ()=>{
+//   for(let i = 0; i < data.entries.length; i++){
+//     if(data.entries[i]!==null){
+//       $ul.append(renderEntry(data.entries[i]));
+//     }
+//   }
+// })
+// const $div = document.querySelector("div");
+// function toggleNoEntries(){
+//   if (!$div) throw new Error("The $div query failed");
+//   if($div.classList.contains("hidden")){
+//     $div.classList.remove("hidden");
+//   }
+//   else{
+//     $div.classList.add("hidden");
+//   }
 // }
