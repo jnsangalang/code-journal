@@ -17,36 +17,42 @@
   </head>
   <body>
     <header>
-      <div class="column-full">
-        <h1 class="header-journal">Code Journal</h1>
-      </div>
-      <div class="column-full">
-        <h2 class="header-entry">New Entry</h2>
+      <div class="container">
+        <div class="column-full">
+          <h1 class="header-journal">Code Journal</h1>
+        </div>
       </div>
     </header>
-    <main class="container">
+    <main>
+      <div class="container">
+        <div class="column-full">
+          <h2 class="header-entry">New Entry</h2>
+        </div>
+      </div>
       <div data-view="entry-form">
         <form id="form-inputs" class="form-box">
-          <div class="row">
-            <div class="column-half">
-              <img
-                src="/images/placeholder-image-square.jpg"
-                class="image-submit"
-                alt="image" />
-            </div>
-            <div class="column-half input-align">
-              <label for="title">Title</label>
-              <input id="title" class="input-box" type="text" required />
-              <label for="photo">Photo URL</label>
-              <input
-                id="photo"
-                class="photo-input input-box"
-                type="text"
-                required />
+          <div class="container">
+            <div class="row">
+              <div class="column-half">
+                <img
+                  src="/images/placeholder-image-square.jpg"
+                  class="image-submit"
+                  alt="image" />
+              </div>
+              <div class="column-half input-align">
+                <label for="title">Title</label>
+                <input id="title" class="input-box" type="text" required />
+                <label for="photo">Photo URL</label>
+                <input
+                  id="photo"
+                  class="photo-input input-box"
+                  type="text"
+                  required />
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="column-full">
+          <div class="container">
+            <div class="row column-full">
               <label for="note">Notes</label>
               <textarea
                 id="note"
@@ -56,7 +62,7 @@
                 required></textarea>
             </div>
           </div>
-          <div>
+          <div class="container">
             <button id="submit" class="button-save" type="submit">SAVE</button>
           </div>
         </form>
