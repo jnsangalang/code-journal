@@ -18,6 +18,7 @@
 .header-entry {
   text-align: left;
   font-size: 2rem;
+  padding-left: 1.5rem;
 }
 
 .header-journal {
@@ -25,7 +26,8 @@
   background-color: rgb(86, 43, 129);
   color: rgb(255, 255, 255);
   font-weight: 100;
-  padding: 1rem 0;
+  padding: 1rem;
+  padding-left: 1.5rem;
 }
 
 .input-box {
@@ -42,4 +44,5 @@
 label {
   font-size: 1.3rem;
   font-weight: 700;
+  line-height: 4rem;
 }
