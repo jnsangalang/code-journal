@@ -1,0 +1,49 @@
+.button-save {
+  float: right;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.75rem;
+  border-radius: 0.2rem;
+  font-size: 0.75rem;
+  background-color: rgb(86, 43, 129);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.box-notes {
+  width: 100%;
+  font-size: 1rem;
+}
+
+.header-entry {
+  text-align: left;
+  font-size: 2rem;
+}
+
+header {
+  background-color: rgb(86, 43, 129);
+  padding: 0.75rem 0;
+}
+
+.header-journal {
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  font-weight: 100;
+}
+
+.input-box {
+  border-radius: 0.2rem;
+  padding: 0.6rem 0;
+  width: 100%;
+}
+
+.image-submit {
+  background-color: rgb(204, 203, 204);
+  width: 100%;
+}
+
+label {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 4rem;
+}
