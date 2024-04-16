@@ -11,13 +11,13 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: wrap;
   justify-content: center;
 }
 
 .column-full,
 .column-half {
   width: 100%;
+  margin-bottom: 3rem;
 }
 
 @media screen and (min-width: 768px) {

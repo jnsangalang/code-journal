@@ -16,14 +16,16 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <header>
-      <div class="container column-full">
+    <header class="container">
+      <div class="column-full">
         <h1 class="header-journal">Code Journal</h1>
+      </div>
+      <div class="column-full">
         <h2 class="header-entry">New Entry</h2>
       </div>
     </header>
-    <main>
-      <div data-view="entry-form" class="container">
+    <main class="container">
+      <div data-view="entry-form">
         <form id="form-inputs" class="form-box">
           <div class="row">
             <div class="column-half">
@@ -33,9 +35,9 @@
                 alt="image" />
             </div>
             <div class="column-half input-align">
-              <p class="input-label">Title</p>
+              <label for="title">Title</label>
               <input id="title" class="input-box" type="text" required />
-              <p class="input-label">Photo URL</p>
+              <label for="photo">Photo URL</label>
               <input
                 id="photo"
                 class="photo-input input-box"
@@ -45,7 +47,7 @@
           </div>
           <div class="row">
             <div class="column-full">
-              <p>Notes</p>
+              <label for="note">Notes</label>
               <textarea
                 id="note"
                 class="box-notes"

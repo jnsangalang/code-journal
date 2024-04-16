@@ -5,32 +5,27 @@
   margin-top: 0.75rem;
   border-radius: 0.2rem;
   font-size: 0.75rem;
-  background-color: rgb(152, 3, 179);
+  background-color: rgb(86, 43, 129);
   color: rgb(255, 255, 255);
   cursor: pointer;
 }
 
 .box-notes {
   width: 100%;
-  font-size: 14px;
-}
-
-.form-box {
-  text-align: left;
+  font-size: 1rem;
 }
 
 .header-entry {
   text-align: left;
+  font-size: 2rem;
 }
 
 .header-journal {
-  font-size: 1rem;
-  background-color: rgb(152, 3, 179);
+  font-size: 1.5rem;
+  background-color: rgb(86, 43, 129);
   color: rgb(255, 255, 255);
   font-weight: 100;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-top: 10rem;
+  padding: 1rem 0;
 }
 
 .input-box {
@@ -39,12 +34,12 @@
   width: 100%;
 }
 
-.input-label {
-  font-size: 14px;
-}
-
 .image-submit {
   background-color: rgb(204, 203, 204);
   width: 100%;
-  height: 100%;
+}
+
+label {
+  font-size: 1.3rem;
+  font-weight: 700;
 }

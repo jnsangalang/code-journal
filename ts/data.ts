@@ -1,13 +1,25 @@
-// /* exported data */
+/* exported data */
+interface Data {
+  view: string;
+  entries: object[];
+  editing: null;
+  nextEntryId: number;
+}
 
-// const data = {
-//   view: 'entry-form',
-//   entries: [],
-//   editing: null,
-//   nextEntryId: 1,
-// };
+let data: Data = {
+  view: 'entry-form',
+  entries: [],
+  editing: null,
+  nextEntryId: 1,
+};
 
-// window.addEventListener('beforeunload', (event:Event) =>{
-//   const dataJSON = JSON.stringify(data);
-//   localStorage.setItem('Data' , dataJSON);
-// })
+window.addEventListener('beforeunload', () => {
+  const dataJSON = JSON.stringify(data);
+  localStorage.setItem('Data', dataJSON);
+});
+
+const previousDataJSON = localStorage.getItem('Data');
+
+if (previousDataJSON !== null) {
+  data = JSON.parse(previousDataJSON);
+}
