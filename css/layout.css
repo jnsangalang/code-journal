@@ -5,12 +5,17 @@
 .container {
   max-width: 575px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 0.75rem;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
+}
+
+.row-entries {
+  display: flex;
+  justify-content: space-between;
 }
 
 .column-full,
@@ -27,7 +32,7 @@
 
   .column-full,
   .column-half {
-    padding: 0 0.75rem;
+    padding: 0;
   }
 
   .column-half {
