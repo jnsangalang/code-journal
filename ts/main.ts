@@ -51,9 +51,9 @@ $formInputs.addEventListener('submit', (event: Event) => {
 
   $imageSubmit.setAttribute('src', '/images/placeholder-image-square.jpg');
 
-  renderEntry(obj);
+  if (!$ul) throw new Error('The $ul query failed');
+  $ul.prepend(renderEntry(obj));
   viewSwap('entries');
-  toggleNoEntries();
 
   if (data.entries.length > 0) {
     toggleNoEntries();
@@ -72,6 +72,7 @@ function renderEntry(entry: Entry): HTMLLIElement {
 
   const $imgUrl = document.createElement('img');
   $imgUrl.src = entry.photo;
+  $imgUrl.setAttribute('alt', 'image uploaded by user');
   $imgUrl.classList.add('image-submit');
 
   $columnHalfImage.append($imgUrl);
@@ -92,9 +93,6 @@ function renderEntry(entry: Entry): HTMLLIElement {
   $note.classList.add('box-notes');
 
   $columnHalfText.append($note);
-  if (!$ul) throw new Error('The $ul query failed');
-
-  $ul.prepend($objListItem);
 
   return $objListItem;
 }
@@ -114,21 +112,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-const $p = document.querySelector('p');
+const $noEntries = document.querySelector('.no-entries');
 
 function toggleNoEntries(): void {
-  if (!$p) throw new Error('The $p query failed');
-
-  if ($p.classList.contains('no-entries') && data.entries.length > 0) {
-    $p.classList.add('hidden');
-  } else if ($p.classList.contains('no-entries') && data.entries === null) {
-    $p.classList.remove('hidden');
+  if (!$noEntries) throw new Error('the $noEntries query failed');
+  if ($noEntries.classList.contains('no-entries') && data.entries.length > 0) {
+    $noEntries.classList.add('hidden');
+  } else if (
+    $noEntries.classList.contains('no-entries') &&
+    data.entries === null
+  ) {
+    $noEntries.classList.remove('hidden');
   }
-}
-
-if (!$p) throw new Error('The $p query failed');
-if (data.entries.length > 0) {
-  toggleNoEntries();
 }
 
 const $view = document.querySelectorAll('.view');
@@ -146,10 +141,10 @@ function viewSwap(string: string): void {
   }
 }
 
-const $a = document.querySelector('a');
-if (!$a) throw new Error('The $entries query failed');
+const $headerEntry = document.querySelector('.header-entry');
+if (!$headerEntry) throw new Error('The $entries query failed');
 
-$a.addEventListener('click', () => {
+$headerEntry.addEventListener('click', () => {
   viewSwap('entries');
 });
 
