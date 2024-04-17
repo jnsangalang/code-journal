@@ -42,6 +42,7 @@ $formInputs.addEventListener('submit', (event) => {
 function renderEntry(entry) {
   const $objListItem = document.createElement('li');
   $objListItem.classList.add('row');
+  $objListItem.setAttribute('data-entry-id', entry.entryId.toString());
   const $columnHalfImage = document.createElement('div');
   $columnHalfImage.classList.add('column-half');
   $objListItem.append($columnHalfImage);
@@ -57,10 +58,14 @@ function renderEntry(entry) {
   $title.textContent = entry.title;
   $title.classList.add('input-box');
   $columnHalfText.append($title);
+  const $icon = document.createElement('i');
+  $icon.setAttribute('class', 'fa-solid fa-pencil');
+  $title.append($icon);
   const $note = document.createElement('p');
   $note.textContent = entry.note;
   $note.classList.add('box-notes');
   $columnHalfText.append($note);
+  console.log($objListItem);
   return $objListItem;
 }
 const $ul = document.querySelector('ul');

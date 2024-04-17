@@ -15,6 +15,10 @@
   font-size: 1rem;
 }
 
+.fa-pencil {
+  float: right;
+}
+
 header {
   background-color: rgb(86, 43, 129);
   padding: 0.75rem 0;
