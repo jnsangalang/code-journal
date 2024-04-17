@@ -15,14 +15,24 @@
   font-size: 1rem;
 }
 
-.header-entry {
-  text-align: left;
-  font-size: 2rem;
-}
-
 header {
   background-color: rgb(86, 43, 129);
   padding: 0.75rem 0;
+}
+
+.header-entry {
+  text-align: left;
+  font-size: 1.3rem;
+  color: rgb(255, 255, 255);
+  padding-top: 1.2rem;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+.header-entries {
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  font-weight: 1000;
 }
 
 .header-journal {
@@ -46,4 +56,30 @@ label {
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 4rem;
+}
+
+.new-button {
+  float: right;
+  border: none;
+  margin-top: 1.5rem;
+  border-radius: 0.2rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: rgb(86, 43, 129);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.no-entries {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#space-text {
+  padding-left: 1rem;
+}
+
+textarea {
+  white-space: pre-wrap;
 }
