@@ -32,6 +32,11 @@ $formInputs.addEventListener('submit', (event) => {
   data.entries.unshift(obj);
   $imageSubmit.setAttribute('src', '/images/placeholder-image-square.jpg');
   renderEntry(obj);
+  viewSwap('entries');
+  toggleNoEntries();
+  if (data.entries.length > 0) {
+    toggleNoEntries();
+  }
   $formInputs.reset();
 });
 function renderEntry(entry) {
@@ -67,6 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
       $ul.append(renderEntry(data.entries[i]));
     }
   }
+  viewSwap(data.view);
+  if (data.entries.length > 0) {
+    toggleNoEntries();
+  }
 });
 const $p = document.querySelector('p');
 function toggleNoEntries() {
@@ -77,7 +86,10 @@ function toggleNoEntries() {
     $p.classList.remove('hidden');
   }
 }
-toggleNoEntries();
+if (!$p) throw new Error('The $p query failed');
+if (data.entries.length > 0) {
+  toggleNoEntries();
+}
 const $view = document.querySelectorAll('.view');
 if (!$view) throw new Error('The $view query failed');
 function viewSwap(string) {
@@ -85,12 +97,12 @@ function viewSwap(string) {
     const dataView = $view[i].getAttribute('data-view');
     if (dataView === string) {
       $view[i].classList.remove('hidden');
+      data.view = string;
     } else {
       $view[i].classList.add('hidden');
     }
   }
 }
-console.log('view swap entries:', viewSwap('entries'));
 const $a = document.querySelector('a');
 if (!$a) throw new Error('The $entries query failed');
 $a.addEventListener('click', () => {

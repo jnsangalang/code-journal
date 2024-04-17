@@ -73,5 +73,13 @@ label {
 
 .no-entries {
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.5rem;
+}
+
+#space-text {
+  padding-left: 1rem;
+}
+
+textarea {
+  white-space: pre-wrap;
 }
