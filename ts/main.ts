@@ -185,6 +185,9 @@ $newButton.addEventListener('click', () => {
 const $headerText = document.querySelector('.header-text');
 if (!$headerText) throw new Error('The $headerText query failed');
 
+const $delete = document.querySelector('button-delete');
+if (!$delete) throw new Error('The $delete query failed');
+
 $ul.addEventListener('click', (event: Event) => {
   const $eventTarget = event.target as HTMLElement;
   const $classIcon = $eventTarget.tagName;
@@ -204,5 +207,6 @@ $ul.addEventListener('click', (event: Event) => {
     $photo.value = data.editing.photo;
     $note.value = data.editing.note;
   }
+
   $headerText.textContent = 'Edit Entry';
 });
