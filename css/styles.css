@@ -15,6 +15,11 @@
   font-size: 1rem;
 }
 
+.fa-pencil {
+  float: right;
+  cursor: pointer;
+}
+
 header {
   background-color: rgb(86, 43, 129);
   padding: 0.75rem 0;
@@ -74,10 +79,6 @@ label {
 .no-entries {
   text-align: center;
   font-size: 1.5rem;
-}
-
-#space-text {
-  padding-left: 1rem;
 }
 
 textarea {

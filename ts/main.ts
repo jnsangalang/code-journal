@@ -27,9 +27,9 @@ $photoInput.addEventListener('input', () => {
 
 const $submit = document.querySelector('#submit');
 const $formInputs = document.querySelector('#form-inputs') as HTMLFormElement;
-const $title = document.querySelector('#title');
-const $note = document.querySelector('#note');
-const $photo = document.querySelector('#photo');
+const $title = document.querySelector('#title') as HTMLInputElement;
+const $note = document.querySelector('#note') as HTMLInputElement;
+const $photo = document.querySelector('#photo') as HTMLInputElement;
 
 if (!$submit) throw new Error('The $submit query failed');
 if (!$formInputs) throw new Error('The $formInputs query failed');
@@ -46,24 +46,45 @@ $formInputs.addEventListener('submit', (event: Event) => {
     note: $formElements.note.value,
     entryId: data.nextEntryId,
   };
-  data.nextEntryId++;
-  data.entries.unshift(obj);
+  const $li = document.querySelectorAll('li');
+  if (!$li) throw new Error('The $li query failed');
 
-  $imageSubmit.setAttribute('src', '/images/placeholder-image-square.jpg');
+  if (data.editing === null) {
+    data.nextEntryId++;
+    data.entries.unshift(obj);
 
-  if (!$ul) throw new Error('The $ul query failed');
-  $ul.prepend(renderEntry(obj));
-  viewSwap('entries');
-
-  if (data.entries.length > 0) {
-    toggleNoEntries();
+    $imageSubmit.setAttribute('src', '/images/placeholder-image-square.jpg');
+    if (!$ul) throw new Error('The $ul query failed');
+    $ul.prepend(renderEntry(obj));
+    if (data.entries.length > 0) {
+      toggleNoEntries();
+    }
+  } else if (data.editing !== null) {
+    obj.entryId = data.editing.entryId;
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === obj.entryId) {
+        data.entries[i] = obj;
+      }
+    }
+    for (let i = 0; i < $li.length; i++) {
+      const $liDataEntryId = $li[i].getAttribute('data-entry-id');
+      if ($liDataEntryId === obj.entryId.toString()) {
+        const $newTree = renderEntry(data.entries[i]);
+        $li[i].replaceWith($newTree);
+      }
+    }
   }
+  if (!$headerText) throw new Error('The $headerText query failed');
+  $headerText.textContent = 'New Entry';
+  viewSwap('entries');
+  data.editing = null;
   $formInputs.reset();
 });
 
 function renderEntry(entry: Entry): HTMLLIElement {
   const $objListItem = document.createElement('li');
   $objListItem.classList.add('row');
+  $objListItem.setAttribute('data-entry-id', entry.entryId.toString());
 
   const $columnHalfImage = document.createElement('div');
   $columnHalfImage.classList.add('column-half');
@@ -88,12 +109,15 @@ function renderEntry(entry: Entry): HTMLLIElement {
 
   $columnHalfText.append($title);
 
+  const $icon = document.createElement('i');
+  $icon.setAttribute('class', 'fa-solid fa-pencil');
+  $title.append($icon);
+
   const $note = document.createElement('p');
   $note.textContent = entry.note;
   $note.classList.add('box-notes');
 
   $columnHalfText.append($note);
-
   return $objListItem;
 }
 
@@ -152,5 +176,33 @@ const $newButton = document.querySelector('.new-button');
 
 if (!$newButton) throw new Error('The $newButton query failed');
 $newButton.addEventListener('click', () => {
+  if (!$headerText) throw new Error('The $headerText query failed');
+  $headerText.textContent = 'New Entry';
+  $formInputs.reset();
   viewSwap('entry-form');
+});
+
+const $headerText = document.querySelector('.header-text');
+if (!$headerText) throw new Error('The $headerText query failed');
+
+$ul.addEventListener('click', (event: Event) => {
+  const $eventTarget = event.target as HTMLElement;
+  const $classIcon = $eventTarget.tagName;
+  const $dataEntryId = $eventTarget
+    .closest('li')
+    ?.getAttribute('data-entry-id');
+  if (!$dataEntryId) throw new Error('The $dataEntryId query failed');
+  if ($classIcon === 'I') {
+    viewSwap('entry-form');
+    for (let i = 0; i < data.entries.length; i++) {
+      if ($dataEntryId === data.entries[i].entryId.toString()) {
+        data.editing = data.entries[i];
+      }
+    }
+    if (!data.editing) throw new Error('The data.editing failed');
+    $title.value = data.editing.title;
+    $photo.value = data.editing.photo;
+    $note.value = data.editing.note;
+  }
+  $headerText.textContent = 'Edit Entry';
 });
