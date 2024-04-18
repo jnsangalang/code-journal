@@ -57,6 +57,7 @@ $formInputs.addEventListener('submit', (event) => {
   if (!$headerText) throw new Error('The $headerText query failed');
   $headerText.textContent = 'New Entry';
   viewSwap('entries');
+  $delete?.classList.add('hidden');
   data.editing = null;
   $formInputs.reset();
 });
@@ -108,7 +109,7 @@ function toggleNoEntries() {
     $noEntries.classList.add('hidden');
   } else if (
     $noEntries.classList.contains('no-entries') &&
-    data.entries === null
+    data.entries.length === 0
   ) {
     $noEntries.classList.remove('hidden');
   }
@@ -136,11 +137,14 @@ if (!$newButton) throw new Error('The $newButton query failed');
 $newButton.addEventListener('click', () => {
   if (!$headerText) throw new Error('The $headerText query failed');
   $headerText.textContent = 'New Entry';
+  $delete?.classList.add('hidden');
   $formInputs.reset();
   viewSwap('entry-form');
 });
 const $headerText = document.querySelector('.header-text');
 if (!$headerText) throw new Error('The $headerText query failed');
+const $delete = document.querySelector('.button-delete');
+if (!$delete) throw new Error('The $delete query failed');
 $ul.addEventListener('click', (event) => {
   const $eventTarget = event.target;
   const $classIcon = $eventTarget.tagName;
@@ -160,5 +164,47 @@ $ul.addEventListener('click', (event) => {
     $photo.value = data.editing.photo;
     $note.value = data.editing.note;
   }
+  $delete.classList.remove('hidden');
   $headerText.textContent = 'Edit Entry';
+});
+const $openModal = document.querySelector('.open-modal');
+const $dialog = document.querySelector('dialog');
+const $confirm = document.querySelector('.confirm');
+const $cancel = document.querySelector('.cancel');
+if (!$openModal) throw new Error('The $openModal query failed');
+if (!$dialog) throw new Error('The $dialog query failed');
+if (!$confirm) throw new Error('The $confirm query failed');
+if (!$cancel) throw new Error('The $cancel query failed');
+$openModal.addEventListener('click', (event) => {
+  event.preventDefault();
+  $dialog.showModal();
+});
+$cancel.addEventListener('click', (event) => {
+  event.preventDefault();
+  $dialog.close();
+});
+$confirm.addEventListener('click', (event) => {
+  event.preventDefault();
+  const currentId = data.editing?.entryId;
+  console.log('current id:', currentId);
+  for (let i = 0; i < data.entries.length; i++) {
+    if (currentId === data.entries[i].entryId) {
+      data.entries.splice(i, 1);
+    }
+    const $li = document.querySelectorAll('li');
+    if (!$li) throw new Error('The $li query failed');
+    for (let i = 0; i < $li.length; i++) {
+      const $liDataEntryId = $li[i].getAttribute('data-entry-id');
+      if ($liDataEntryId === data.editing?.entryId.toString()) {
+        $li[i].remove();
+      }
+    }
+    console.log('data entries length', data.entries.length);
+  }
+  if (data.entries.length === 0) {
+    toggleNoEntries();
+  }
+  data.nextEntryId--;
+  $dialog.close();
+  viewSwap('entries');
 });

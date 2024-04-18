@@ -23,6 +23,33 @@
   font-size: 1rem;
 }
 
+.cancel {
+  background-color: rgb(182, 182, 182);
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.3rem 1rem;
+  font-size: 1rem;
+}
+
+.confirm {
+  background-color: rgb(220, 38, 38);
+  border: none;
+  border-radius: 0.2rem;
+  color: rgb(255, 255, 255);
+  padding: 0.3rem 1rem;
+  font-size: 1rem;
+}
+
+dialog {
+  border-color: transparent;
+  font-size: 0.9rem;
+  padding: 2rem;
+}
+
+dialog::backdrop {
+  background-color: rgb(91, 91, 91);
+}
+
 .fa-pencil {
   float: right;
   cursor: pointer;
@@ -69,6 +96,11 @@ label {
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 4rem;
+}
+
+.modal-action {
+  display: flex;
+  justify-content: space-between;
 }
 
 .new-button {
