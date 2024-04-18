@@ -17,6 +17,7 @@
 
 .fa-pencil {
   float: right;
+  cursor: pointer;
 }
 
 header {
@@ -78,10 +79,6 @@ label {
 .no-entries {
   text-align: center;
   font-size: 1.5rem;
-}
-
-#space-text {
-  padding-left: 1rem;
 }
 
 textarea {

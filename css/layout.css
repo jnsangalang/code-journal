@@ -38,4 +38,8 @@
   .column-half {
     width: 50%;
   }
+
+  #space-text {
+    padding-left: 1rem;
+  }
 }
