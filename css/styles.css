@@ -47,7 +47,7 @@ dialog {
 }
 
 dialog::backdrop {
-  background-color: rgb(91, 91, 91);
+  background-color: rgb(0, 0, 0, 0.8);
 }
 
 .fa-pencil {

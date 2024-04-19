@@ -228,34 +228,30 @@ $openModal.addEventListener('click', (event: Event) => {
   $dialog.showModal();
 });
 
-$cancel.addEventListener('click', (event: Event) => {
-  event.preventDefault();
+$cancel.addEventListener('click', () => {
   $dialog.close();
 });
 
-$confirm.addEventListener('click', (event: Event) => {
-  event.preventDefault();
+$confirm.addEventListener('click', () => {
   const currentId = data.editing?.entryId;
-  console.log('current id:', currentId);
+
   for (let i = 0; i < data.entries.length; i++) {
     if (currentId === data.entries[i].entryId) {
       data.entries.splice(i, 1);
     }
-    const $li = document.querySelectorAll('li');
-    if (!$li) throw new Error('The $li query failed');
+  }
+  const $li = document.querySelectorAll('li');
+  if (!$li) throw new Error('The $li query failed');
 
-    for (let i = 0; i < $li.length; i++) {
-      const $liDataEntryId = $li[i].getAttribute('data-entry-id');
-      if ($liDataEntryId === data.editing?.entryId.toString()) {
-        $li[i].remove();
-      }
+  for (let i = 0; i < $li.length; i++) {
+    const $liDataEntryId = $li[i].getAttribute('data-entry-id');
+    if ($liDataEntryId === data.editing?.entryId.toString()) {
+      $li[i].remove();
     }
-    console.log('data entries length', data.entries.length);
   }
   if (data.entries.length === 0) {
     toggleNoEntries();
   }
-  data.nextEntryId--;
   $dialog.close();
   viewSwap('entries');
 });
