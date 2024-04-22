@@ -23,3 +23,4 @@ const previousDataJSON = localStorage.getItem('Data');
 if (previousDataJSON !== null) {
   data = JSON.parse(previousDataJSON);
 }
+localStorage.clear();
